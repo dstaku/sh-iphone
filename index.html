@@ -13770,7 +13770,8 @@ aria-label="다음 곡">
       return;
     }
 
-    const scale = Math.min(width / 390, height / 844, 1) * 0.9;
+   const scale = Math.min(width / 390, height / 844);
+
     phone.style.transform = `scale(${scale})`;
   }
 
