@@ -13775,19 +13775,27 @@ function fitPhoneToScreen() {
     return;
   }
 
+  const scale = Math.min(width / 390, height / 844);
+
   phone.style.position = 'fixed';
   phone.style.inset = 'auto';
-  phone.style.left = `${offsetLeft}px`;
-  phone.style.top = `${offsetTop}px`;
-  phone.style.width = `${width}px`;
-  phone.style.height = `${height}px`;
-  phone.style.transform = 'none';
+  phone.style.left = `${offsetLeft + width / 2}px`;
+  phone.style.top = `${offsetTop + height / 2}px`;
+  phone.style.transform =
+    `translate(-50%, -50%) scale(${scale})`;
 }
 
+fitPhoneToScreen();
+window.addEventListener('resize', fitPhoneToScreen);
 
+if (window.visualViewport) {
+  window.visualViewport.addEventListener('resize', fitPhoneToScreen);
+  window.visualViewport.addEventListener('scroll', fitPhoneToScreen);
+}
 
 })();
 </script>
+
 <style>
   #dreamMusicApp .dream-song-name {
     font-size: 15px !important;
@@ -13805,6 +13813,11 @@ function fitPhoneToScreen() {
     font-size: 15px !important;
     line-height: 1.4;
   }
+</style>
+
+</body>
+</html>
+
 </style>
 
 
