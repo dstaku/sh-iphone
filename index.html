@@ -1283,7 +1283,8 @@ left: 20px;
     
 <div class="widget-row">
   <!-- 왼쪽: 사진 선택 -->
-<label class="home-widget photo-widget" for="widgetPhotoInput">
+<label class="home-widget photo-widget">
+
        <img id="widgetPhoto" src="https://lh3.googleusercontent.com/d/1Sd0ta-7KV5MkKiklrO_e9HwGy763N42L=w1200" alt="위젯 사진">
     <span id="widgetPhotoHint" hidden>사진 추가</span>
 
@@ -1297,9 +1298,6 @@ left: 20px;
     <span class="cw-caption">캘린더</span>
   </button>
 </div>
-
-<input id="widgetPhotoInput" type="file" accept="image/*" hidden>
-
 
     <div class="home"><div class="grid" id="grid"></div></div>
     <div class="dock" id="dock"></div>
@@ -13760,7 +13758,7 @@ aria-label="다음 곡">
   const phone = document.getElementById('phone');
   if (!phone) return;
 
-  function fitPhoneToScreen() {
+ function fitPhoneToScreen() {
   const viewport = window.visualViewport;
   const width = viewport ? viewport.width : window.innerWidth;
   const height = viewport ? viewport.height : window.innerHeight;
@@ -13772,17 +13770,24 @@ aria-label="다음 곡">
     phone.style.inset = '';
     phone.style.left = '';
     phone.style.top = '';
+    phone.style.width = '';
+    phone.style.height = '';
     phone.style.transform = '';
     return;
   }
 
+  const scale = width / 390;
+
+  phone.style.width = '390px';
+  phone.style.height = `${height / scale}px`;
   phone.style.position = 'fixed';
   phone.style.inset = 'auto';
   phone.style.left = `${offsetLeft + width / 2}px`;
   phone.style.top = `${offsetTop + height / 2}px`;
   phone.style.transform =
-    `translate(-50%, -50%) scale(${width / 390}, ${height / 844})`;
+    `translate(-50%, -50%) scale(${scale})`;
 }
+
 
 })();
 </script>
