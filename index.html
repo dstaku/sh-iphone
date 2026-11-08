@@ -7104,26 +7104,25 @@ avatar: 'https://lh3.googleusercontent.com/d/159DEE91LcMatZUAK36hURV2n1B06sT5M',
           { text: '성호야', out: false },
           { text: '자??ㅜㅜ', out: false },
           { text: '뭐야 이거..?', out: true },
-          { text: '내가진짜미안해', out: false },
+          { text: '내가진짜미안', out: false },
           { text: '아진짜미안', out: false },
           { text: '내가 다 해결할게...', out: false },
           { text: '왜 하필 오늘...', out: true },
-          { text: '그러게 내가 티 적당히 내라고 했지', out: true },
+          { text: '그러게 내가 티 적당히 내랬지', out: true },
           { text: '미안...', out: false },
           { text: '이렇게 들킬 줄 몰랐어..', out: false },
           { text: '이상한거 보지마아아..', out: false },
           { text: '내가 아니라 너 걱정을 해야지.. 너 팬들 어쩔 건데', out: true },
-          { text: '하하 뭐 어떻게든 되겠지?', out: false },
-          { text: '박성호만있음돼', out: false },
-          { text: '너 팬들로 먹고사는 직업이다 정신 차려라', out: true },
+          { text: '하하 뭐 어떻게든 되겠지', out: false },
+          { text: '너 팬들로 먹고사는 직업이다 정신차려라', out: true },
           { text: 'ㅎㅎ', out: false },
-          { text: '보고 싶어 자기얌', out: false },
+          { text: '보고싶어 예삐', out: false },
           { text: '지금 상황에 그런 소리가 나오냐...', out: true },
-          { text: '오늘 3주년인데... 한강 가자', out: false },
-          { text: '정신 못 차리냐아!!!', out: true },
+          { text: '한강 가자', out: false },
+          { text: '정신 못차리냐!!!', out: true },
           { text: '한강 가자아아', out: false },
-          { text: '..언제 만날 건데', out: true },
-          { text: '지금 당장', out: false },
+          { text: '..언제', out: true },
+          { text: '지금 당장 ㅎㅎ', out: false },
           {
             date: '2026년 11월 7일 토요일'
           },
@@ -13815,6 +13814,110 @@ function fitPhoneToScreen() {
   height: 100vh !important;
   height: 100dvh !important;
   transform: translateX(-50%) !important;
+}
+</style>
+<style>
+/* 현재 폰 화면 높이를 내부 크기의 기준으로 사용 */
+#phone {
+  container-type: size;
+}
+
+/* 암호 입력: 아래로 넘치던 고정 위치 해제 */
+#pass .pass-title {
+  top: 17%;
+}
+
+#pass .dots {
+  top: 23%;
+}
+
+#pass .keypad {
+  top: 31%;
+  grid-template-columns: repeat(3, clamp(42px, 9cqh, 66px));
+  column-gap: clamp(16px, 4cqw, 22px);
+  row-gap: clamp(8px, 2cqh, 16px);
+}
+
+#pass .key {
+  width: clamp(42px, 9cqh, 66px);
+  height: clamp(42px, 9cqh, 66px);
+}
+
+#pass .key .n {
+  font-size: clamp(24px, 4.3cqh, 32px);
+}
+
+#pass .pass-foot {
+  top: auto;
+  bottom: 30px;
+}
+
+/* 홈 위젯: 정사각형 비율 유지하며 축소 */
+#home .widget-row {
+  grid-template-columns: repeat(2, minmax(0, 146px));
+  justify-content: center;
+  gap: 18px;
+  margin: 64px 20px 16px;
+}
+
+#home .widget-row > .home-widget {
+  width: min(100%, 20cqh);
+  justify-self: center;
+}
+
+/* 앱 아이콘과 행 간격 축소 */
+#home > .home {
+  padding-top: 0;
+}
+
+#home .grid {
+  row-gap: clamp(6px, 1.5cqh, 14px);
+  padding: 0 12px;
+}
+
+#home .grid .app {
+  width: 100%;
+  min-width: 0;
+  gap: 4px;
+}
+
+#home .grid .app .ic {
+  width: clamp(36px, 7cqh, 52px);
+  height: clamp(36px, 7cqh, 52px);
+  border-radius: 12px;
+}
+
+#home .grid .app span {
+  font-size: 11px;
+}
+
+/* 하단 독도 크기와 간격만 축소 */
+#home .dock {
+  bottom: 18px;
+  height: 76px;
+}
+
+#home .dock .ic {
+  width: 52px;
+  height: 52px;
+}
+
+/* 인스타 사진: 본문이 보이도록 높이 제한
+   원본 전체 표시, 자르기·비율 왜곡 없음 */
+#socialApps .sa-feed-photo {
+  width: 100%;
+  height: clamp(100px, 38cqh, 300px);
+  aspect-ratio: auto;
+  flex-shrink: 0;
+}
+
+#socialApps .sa-feed-photo img {
+  object-fit: contain;
+}
+
+#socialApps .sa-post-tools {
+  padding-top: 8px;
+  padding-bottom: 8px;
 }
 </style>
 
